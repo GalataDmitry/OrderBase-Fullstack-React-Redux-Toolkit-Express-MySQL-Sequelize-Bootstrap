@@ -1,0 +1,8 @@
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD root
+ENV MYSQL_DATABASE OrderBase
+ENV MYSQL_USER uncleniko
+ENV MYSQL_PASSWORD galatapodsalatom
+
+EXPOSE 3306
