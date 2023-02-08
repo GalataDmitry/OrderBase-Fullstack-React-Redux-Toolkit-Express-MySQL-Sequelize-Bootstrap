@@ -19,7 +19,9 @@ services:
 
   server:
     container_name: server
-    build: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     restart: on-failure
     networks:
       orderbase_network:
