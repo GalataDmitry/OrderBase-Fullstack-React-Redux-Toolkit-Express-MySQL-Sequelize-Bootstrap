@@ -13,7 +13,7 @@ const initialState = {
 export const getAllClients = createAsyncThunk(
     'getAllClients',
     () => {
-        return fetch('http://192.168.0.2:5000/api/get_all_clients')
+        return fetch('http://172.16.0.2:5000/api/get_all_clients')
             .then(response => response.json())
             .then(result => result)
             .catch(error => console.log('fetch client error --->', error))
@@ -28,7 +28,7 @@ export const getClientInfo = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/get_client_info', options)
+        return fetch('http://172.16.0.2:5000/api/get_client_info', options)
             .then(response => response.json())
             .then(result => result)
             .catch(error => console.log('fetch client info error --->', error))
@@ -42,7 +42,7 @@ export const getOrderInfo = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/get_order_info', options)
+        return fetch('http://172.16.0.2:5000/api/get_order_info', options)
             .then(response => response.json())
             .then(result => result)
             .catch(error => console.log('fetch client info error --->', error))
@@ -57,7 +57,7 @@ export const getAllClientInfo = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/get_all_client_info', options)
+        return fetch('http://172.16.0.2:5000/api/get_all_client_info', options)
             .then(response => response.json())
             .then(result => result)
             .catch(error => console.log('fetch client info error --->', error))
@@ -72,10 +72,10 @@ export const addClient = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientData})
         }
-        return fetch('http://192.168.0.2:5000/api/add_client', options)
+        return fetch('http://172.16.0.2:5000/api/add_client', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_clients')
+                    return fetch('http://172.16.0.2:5000/api/get_all_clients')
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client error --->', error))
@@ -91,10 +91,10 @@ export const addOrder = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId, orderData})
         }
-        return fetch('http://192.168.0.2:5000/api/add_order', options)
+        return fetch('http://172.16.0.2:5000/api/add_order', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_clients')
+                    return fetch('http://172.16.0.2:5000/api/get_all_clients')
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client error --->', error))
@@ -110,7 +110,7 @@ export const searchClient = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientName})
         }
-        return fetch('http://192.168.0.2:5000/api/search_client', options)
+        return fetch('http://172.16.0.2:5000/api/search_client', options)
             .then(response => response.json())
             .then(result => result)
             .catch(error => console.log('fetch search client error --->', error))
@@ -131,10 +131,10 @@ export const changeClientInfo = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId: id})
         }
-        return fetch('http://192.168.0.2:5000/api/change_client_info', options)
+        return fetch('http://172.16.0.2:5000/api/change_client_info', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_client_info', options_1)
+                    return fetch('http://172.16.0.2:5000/api/get_all_client_info', options_1)
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client info error --->', error))
@@ -156,10 +156,10 @@ export const changeOrderInfo = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/change_order_info', options)
+        return fetch('http://172.16.0.2:5000/api/change_order_info', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_client_info', options_1)
+                    return fetch('http://172.16.0.2:5000/api/get_all_client_info', options_1)
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client info error --->', error))
@@ -181,10 +181,10 @@ export const destroyOrder = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/destroy_order', options)
+        return fetch('http://172.16.0.2:5000/api/destroy_order', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_client_info', options_1)
+                    return fetch('http://172.16.0.2:5000/api/get_all_client_info', options_1)
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client info error --->', error))
@@ -200,10 +200,10 @@ export const destroyClient = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/destroy_client', options)
+        return fetch('http://172.16.0.2:5000/api/destroy_client', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_clients')
+                    return fetch('http://172.16.0.2:5000/api/get_all_clients')
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client error --->', error))
@@ -225,10 +225,10 @@ export const isDone = createAsyncThunk(
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({clientId})
         }
-        return fetch('http://192.168.0.2:5000/api/is_done_order', options)
+        return fetch('http://172.16.0.2:5000/api/is_done_order', options)
             .then(response => {
                 if (response.status === 200)
-                    return fetch('http://192.168.0.2:5000/api/get_all_client_info', options_1)
+                    return fetch('http://172.16.0.2:5000/api/get_all_client_info', options_1)
                         .then(response => response.json())
                         .then(result => result)
                         .catch(error => console.log('fetch client info error --->', error))

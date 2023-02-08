@@ -9,7 +9,7 @@ services:
     restart: on-failure
     networks:
       orderbase_network:
-        ipv4_address: 192.168.0.5
+        ipv4_address: 172.16.0.5
     depends_on:
 #      server:
 #        condition: service_healthy
@@ -23,13 +23,13 @@ services:
     restart: on-failure
     networks:
       orderbase_network:
-        ipv4_address: 192.168.0.2
+        ipv4_address: 172.16.0.2
 #    healthcheck:
 #      test: curl --fail server:5000 || exit 1
     depends_on:
 #      - db
-      db:
-        condition: service_healthy
+       db:
+         condition: service_healthy
 
   db:
     container_name: db
@@ -41,7 +41,7 @@ services:
       - /home/uncleniko/Projects/new/volumes/orderbase_db_volumes:/var/lib/mysql
     networks:
       orderbase_network:
-        ipv4_address: 192.168.0.3
+        ipv4_address: 172.16.0.3
     healthcheck:
       test: curl --fail db:3306 || exit 1
 
@@ -57,7 +57,7 @@ services:
       MYSQL_PASSWORD: galatapodsalatom
     networks:
       orderbase_network:
-        ipv4_address: 192.168.0.4
+        ipv4_address: 172.16.0.4
     depends_on:
       - db
 
@@ -69,7 +69,7 @@ services:
     command: npx sequelize-cli db:migrate
     networks:
       orderbase_network:
-        ipv4_address: 192.168.0.6
+        ipv4_address: 172.16.0.6
     depends_on:
       - server
 
@@ -78,7 +78,7 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.0.0/16
+        - subnet: 172.16.0.0/16
 #volumes:
 #  db-data:
 #    name: my-volume
