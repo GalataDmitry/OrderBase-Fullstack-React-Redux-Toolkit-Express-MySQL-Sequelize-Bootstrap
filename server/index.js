@@ -6,8 +6,8 @@ const dbConnect = require('./sequelizeConnect/sequelizeConnect')
 const app = express()
 const PORT = 5000
 app.use(cors({
-    origin: '*'
-    // origin: 'http://localhost:3040'
+    // origin: '*'
+    origin: 'http://192.168.1.102:3040'
     // origin: 'http://192.168.0.5:3000'
 }))
 app.use(express.json())
