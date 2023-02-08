@@ -13,7 +13,7 @@ const initialState = {
 export const getAllClients = createAsyncThunk(
     'getAllClients',
     () => {
-        cosole.log("WORK")
+        console.log("reducer WORK ----------------->>>>>>>")
         return fetch('http://172.16.16.2:5000/api/get_all_clients')
             .then(response => response.json())
             .then(result => result)
