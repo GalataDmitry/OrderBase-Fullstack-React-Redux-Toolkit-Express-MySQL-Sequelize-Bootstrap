@@ -3,6 +3,7 @@ const {Clients} = require('../models')
 const {Orders} = require('../models')
 
 const getAllClients = async (req, res) => {
+    console.log('getAllClients controller WORK --------->>')
     try {
         const allClients = await Clients.findAll({
             include: Orders,
