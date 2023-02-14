@@ -3,7 +3,6 @@ const {Clients} = require('../models')
 const {Orders} = require('../models')
 
 const getAllClients = async (req, res) => {
-    console.log('getAllClients controller WORK --------->>')
     try {
         const allClients = await Clients.findAll({
             include: Orders,
@@ -12,6 +11,7 @@ const getAllClients = async (req, res) => {
             ],
             limit: 10
         })
+        res.status(200)
         res.json(allClients)
     } catch (error) {
         console.log('add controller error --->', error)
@@ -54,7 +54,6 @@ const addClient = async (req, res) => {
         const newClient = await Clients.create({client_name, phone, email, comment})
         res.json(newClient).status(200)
     } catch (error) {
-        console.log('add controller error --->', error)
         res.status(500)
     }
 }

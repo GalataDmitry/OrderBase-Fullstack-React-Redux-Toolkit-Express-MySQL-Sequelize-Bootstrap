@@ -5,18 +5,13 @@ const dbConnect = require('./sequelizeConnect/sequelizeConnect')
 
 const app = express()
 const PORT = 5000
-app.use(cors(
-    {
-    // origin: '*'
-    origin: 'http://192.168.1.108:3040'
-    // origin: 'http://192.168.0.5:3000'
-}
-))
+
+app.use(cors({origin: '*'}))
 app.use(express.json())
 
 dbConnect()
 
-app.listen(PORT,error => error ?
+app.listen(PORT, error => error ?
     console.log('error --->', error) :
     console.log(`server run on PORT ${PORT}`)
 )

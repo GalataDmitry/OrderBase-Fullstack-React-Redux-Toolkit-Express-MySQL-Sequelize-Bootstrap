@@ -15,7 +15,6 @@ function App() {
     const allClients = useSelector(state => state.mainReducer.allClients)
 
     useEffect(() => {
-        console.log('getAllClients WORK -------------->>>')
         dispatch(getAllClients())
     }, [])
 
