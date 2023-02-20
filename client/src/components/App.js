@@ -28,6 +28,7 @@ function App() {
                 </> :
                 allClients?.map(client => {
                     return <div className='container-fluid w-50'>
+                        TEST
                         <hr/>
                         <div className='row'>
                             <div className='col'>
